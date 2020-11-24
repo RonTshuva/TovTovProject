@@ -1,4 +1,4 @@
-package com.example.tovtovproject;
+package com.example.tovtov;
 
 import android.view.View;
 import android.widget.ImageView;

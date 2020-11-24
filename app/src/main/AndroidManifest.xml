@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.tovtovproject">
+    package="com.example.tovtov">
 
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
@@ -26,7 +26,7 @@
              You can define the keys for the debug and release targets in src/debug/ and src/release/.
         -->
 
-        <activity android:name="com.example.tovtovproject.LoginActivity">
+        <activity android:name="com.example.tovtov.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,13 +34,13 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.example.tovtovproject.RegisterActivity"/>
-        <activity android:name="com.example.tovtovproject.MainPortalActivity"/>
-        <activity android:name="com.example.tovtovproject.PostContributionActivity"/>
-        <activity android:name="com.example.tovtovproject.GetContributionActivity"/>
-        <activity android:name="com.example.tovtovproject.ResultListActivity"/>
-        <activity android:name="com.example.tovtovproject.TwoGateActivity"/>
-        <activity android:name=".AssignedContributionActivity"/>
+        <activity android:name="com.example.tovtov.RegisterActivity"/>
+        <activity android:name="com.example.tovtov.MainPortalActivity"/>
+        <activity android:name="com.example.tovtov.PostContributionActivity"/>
+        <activity android:name="com.example.tovtov.GetContributionActivity"/>
+        <activity android:name="com.example.tovtov.ResultListActivity"/>
+        <activity android:name="com.example.tovtov.TwoGateActivity"/>
+        <activity android:name="com.example.tovtov.AssignedContributionActivity"/>
 
 
     </application>

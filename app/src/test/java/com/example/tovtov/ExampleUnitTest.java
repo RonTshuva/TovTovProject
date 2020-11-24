@@ -1,4 +1,4 @@
-package com.example.tovtovproject;
+package com.example.tovtov;
 
 import org.junit.Test;
 

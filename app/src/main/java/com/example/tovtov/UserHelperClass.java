@@ -1,4 +1,4 @@
-package com.example.tovtovproject;
+package com.example.tovtov;
 
 public class UserHelperClass {
     private String dateCreated, userName, password, phoneNumber, firstName, lastName, fullAddress, addressCoordinates;

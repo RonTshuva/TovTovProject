@@ -1,18 +1,10 @@
-package com.example.tovtovproject;
+package com.example.tovtov;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.location.Address;
-import android.location.Geocoder;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import java.io.IOException;
-import java.util.List;
-import java.util.Locale;
 
 public class TwoGateActivity extends Activity {
     public static final String PAGE_ARGUMENT = "pageArgument", PAGE_ARGUMENT_GIVER = "two_gate_giver", PAGE_ARGUMENT_GETTER = "two_gate_getter";

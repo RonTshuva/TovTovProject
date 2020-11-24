@@ -1,4 +1,4 @@
-package com.example.tovtovproject;
+package com.example.tovtov;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;

@@ -1,4 +1,4 @@
-package com.example.tovtovproject;
+package com.example.tovtov;
 
 public class CurrentUser {
     static private String userName, email, phoneNumber, firstName, lastName, fullAddress, addressCoordinates;
