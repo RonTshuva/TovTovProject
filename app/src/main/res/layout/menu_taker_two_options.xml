@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/portalbg">
+
+    <Button
+        android:id="@+id/make_post_help_button"
+        android:layout_width="351dp"
+        android:layout_height="109dp"
+        android:background="@drawable/button_login_background"
+        android:onClick="publishHelpRequest"
+        android:text="צור בקשה לסיוע"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        app:backgroundTint="#F44336"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.307" />
+
+    <Button
+        android:id="@+id/watch_givings_button"
+        android:layout_width="351dp"
+        android:layout_height="109dp"
+        android:background="@drawable/button_login_background"
+        android:onClick="searchContribution"
+        android:text="צפה בתרומות קיימות"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        app:backgroundTint="#F44336"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.569" />
+
+    <ImageView
+        android:id="@+id/tree_img"
+        android:layout_width="268dp"
+        android:layout_height="260dp"
+        android:layout_marginStart="81dp"
+        android:layout_marginLeft="81dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="62dp"
+        android:layout_marginRight="62dp"
+        android:src="@drawable/tri"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/watch_givings_button"
+        app:srcCompat="@drawable/tri" />
+
+    <ImageView
+        android:id="@+id/page_help_headlin_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="42dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/make_post_taker_header"
+        app:layout_constraintBottom_toTopOf="@+id/make_post_help_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/make_post_taker_header" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
