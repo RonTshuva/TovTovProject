@@ -75,7 +75,10 @@ Whether you like to give away or accept help even from the comfort of your home,
     1) Providing good (מעוניין לתרום)
     2) Seek for good (אשמח לתרומה)
     3) transport good (אשמש כשליח לתרומה)
-![alt text](https://i.ibb.co/KmCSpFk/Mainportal.png)
+    4) my contributions ( התרומות שלי)
+    5) my requests (הבקשות שלי)
+    
+    ![alt text](https://i.ibb.co/KmCSpFk/Mainportal.png)
     
   # 1) Providing good (מעוניין לתרום) Button:
   If you wish to give somehow to the community you may press this button
@@ -83,6 +86,7 @@ Whether you like to give away or accept help even from the comfort of your home,
   
 A) Create a post:
    Create a post in which you explain the form you are willing to help/ or what is it you are  willing to give as charity.
+   (note: you can see your contributions if you click on "4) my contributions" button at the "Main Portal")
 B}   Result Page:
    Watch Available requests for helps from people who seek help. (See "Result Page")
    ![alt text]( https://i.ibb.co/ZmskhBr/Give-Help.png)
@@ -91,6 +95,7 @@ B}   Result Page:
   it will show you 2 options:
  ![alt text](https://i.ibb.co/VSnK64f/needhelp.png)
 first is to Create a post in which you explain the form you are willing to get help/ or what is it you are  wish to get as charity.
+(note: you can see your help requests if you click on "5) my requests" button at the "Main Portal")
 
 second is to Watch Available Posts people who are willing to give away certain items or help. (See "Result Page")
   # Make Post:
