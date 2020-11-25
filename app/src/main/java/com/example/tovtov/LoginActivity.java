@@ -18,6 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Date;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -63,6 +64,8 @@ public class LoginActivity extends AppCompatActivity {
                     String hashedPasswordEntered = hashPassword(dateCreated, passwordEntered);
 
                     if(hashedPasswordFromDB.equals(hashedPasswordEntered)){
+                        String date = new Date().toString();
+                        userReference.child(userNameEntered).child("lastLoggedIn").setValue(date);
                         String email = dataSnapshot.child(userNameEntered).child("email").getValue(String.class);
                         String firstName = dataSnapshot.child(userNameEntered).child("firstName").getValue(String.class);
                         String lastName = dataSnapshot.child(userNameEntered).child("lastName").getValue(String.class);

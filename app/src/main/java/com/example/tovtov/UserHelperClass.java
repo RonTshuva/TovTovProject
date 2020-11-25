@@ -1,7 +1,7 @@
 package com.example.tovtov;
 
 public class UserHelperClass {
-    private String dateCreated, userName, password, phoneNumber, firstName, lastName, fullAddress, addressCoordinates;
+    private String dateCreated, userName, password, phoneNumber, firstName, lastName, fullAddress, addressCoordinates, lastLoggedIn;
 
     public UserHelperClass(String dateCreated, String userName, String password, String phoneNumber, String firstName, String lastName, String fullAddress, String addressCoordinates) {
         this.dateCreated = dateCreated;
@@ -12,6 +12,16 @@ public class UserHelperClass {
         this.lastName = lastName;
         this.fullAddress = fullAddress;
         this.addressCoordinates = addressCoordinates;
+        this.lastLoggedIn = "";
+    }
+
+
+    public String getLastLoggedIn() {
+        return lastLoggedIn;
+    }
+
+    public void setLastLoggedIn(String lastLoggedIn) {
+        this.lastLoggedIn = lastLoggedIn;
     }
 
 

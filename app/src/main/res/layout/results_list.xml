@@ -270,10 +270,9 @@
         android:layout_marginBottom="7dp"
         app:layout_constraintBottom_toTopOf="@+id/secondItemButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.102"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.041"
+        app:layout_constraintStart_toStartOf="@+id/firstItemButton"
         app:layout_constraintTop_toTopOf="@+id/firstItemButton"
-        app:layout_constraintVertical_bias="0.47"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
@@ -283,10 +282,10 @@
         android:layout_marginBottom="4dp"
         app:layout_constraintBottom_toTopOf="@+id/thirdItemButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.106"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.041"
+        app:layout_constraintStart_toStartOf="@+id/secondItemButton"
         app:layout_constraintTop_toTopOf="@+id/secondItemButton"
-        app:layout_constraintVertical_bias="0.411"
+        app:layout_constraintVertical_bias="0.4"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
@@ -296,10 +295,10 @@
         android:layout_marginBottom="4dp"
         app:layout_constraintBottom_toBottomOf="@+id/thirdItemButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.106"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.041"
+        app:layout_constraintStart_toStartOf="@+id/thirdItemButton"
         app:layout_constraintTop_toTopOf="@+id/thirdItemButton"
-        app:layout_constraintVertical_bias="0.411"
+        app:layout_constraintVertical_bias="0.4"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
@@ -309,8 +308,8 @@
         android:layout_marginBottom="13dp"
         app:layout_constraintBottom_toBottomOf="@+id/forthItemButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.106"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.041"
+        app:layout_constraintStart_toStartOf="@+id/forthItemButton"
         app:layout_constraintTop_toTopOf="@+id/forthItemButton"
         app:layout_constraintVertical_bias="1.0"
         tools:srcCompat="@tools:sample/avatars" />
@@ -332,9 +331,9 @@
         android:layout_height="wrap_content"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/firstItemButton"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/firstItemButton"
         app:layout_constraintHorizontal_bias="0.761"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/firstButtonImageView"
         app:layout_constraintTop_toTopOf="@+id/firstItemButton"
         app:layout_constraintVertical_bias="0.071" />
 
@@ -344,9 +343,9 @@
         android:layout_height="wrap_content"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/thirdItemButton"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/thirdItemButton"
         app:layout_constraintHorizontal_bias="0.761"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/thirdButtonImageView"
         app:layout_constraintTop_toTopOf="@+id/thirdItemButton"
         app:layout_constraintVertical_bias="0.071" />
 
@@ -357,9 +356,9 @@
         android:layout_marginBottom="38dp"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/forthItemButton"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/forthItemButton"
         app:layout_constraintHorizontal_bias="0.761"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/forthButtonImageView"
         app:layout_constraintTop_toTopOf="@+id/forthItemButton"
         app:layout_constraintVertical_bias="0.264" />
 
@@ -369,9 +368,9 @@
         android:layout_height="wrap_content"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/thirdItemButton"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/secondItemButton"
         app:layout_constraintHorizontal_bias="0.761"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/secondButtonImageView"
         app:layout_constraintTop_toBottomOf="@+id/firstItemButton"
         app:layout_constraintVertical_bias="0.071" />
 
@@ -380,9 +379,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/firstItemButton"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/firstItemButton"
         app:layout_constraintHorizontal_bias="0.761"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/firstButtonImageView"
         app:layout_constraintTop_toTopOf="@+id/firstItemButton"
         app:layout_constraintVertical_bias="0.494" />
 
@@ -391,9 +390,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/thirdItemButton"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/secondItemButton"
         app:layout_constraintHorizontal_bias="0.761"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/secondButtonImageView"
         app:layout_constraintTop_toBottomOf="@+id/firstItemButton"
         app:layout_constraintVertical_bias="0.494" />
 
@@ -402,9 +401,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/thirdItemButton"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/thirdItemButton"
         app:layout_constraintHorizontal_bias="0.761"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/thirdButtonImageView"
         app:layout_constraintTop_toTopOf="@+id/thirdItemButton"
         app:layout_constraintVertical_bias="0.505" />
 
@@ -413,9 +412,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/forthItemButton"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/forthItemButton"
         app:layout_constraintHorizontal_bias="0.761"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/forthButtonImageView"
         app:layout_constraintTop_toBottomOf="@+id/thirdItemButton"
         app:layout_constraintVertical_bias="0.574" />
 

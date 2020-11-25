@@ -137,70 +137,33 @@ public class ResultListActivity extends Activity {
     private void createGetHelpRequestsBySearchPage(){
         pageTitleNeedHelpResults.setVisibility(View.VISIBLE);
         searchText.getTextLayout().setHint("חפש נזקקים לעזרה");
-        getHelpRequestsFromDatabase();
+        getContributionsFromDatabase(Contribution.CONTRIBUTION_TYPE_HELP, GET_ALL_CONTRIBUTIONS);
     }
     private void createMyHelpRequestsPage(){
         pageTitleMyHelpRequests.setVisibility(View.VISIBLE);
         searchText.getTextLayout().setHint("חפש בקשות שלך");
-        getMyHelpRequestsFromDatabase();
+        getContributionsFromDatabase(Contribution.CONTRIBUTION_TYPE_HELP, GET_MY_CONTRIBUTIONS);
 
     }
 
     private void createMyContributionsPage() {
         pageTitleMyContributions.setVisibility(View.VISIBLE);
         searchText.getTextLayout().setHint("חפש בתרומות שלך");
-        getMyContributionsFromDatabase();
+        getContributionsFromDatabase(Contribution.CONTRIBUTION_TYPE_SHARE_CONTRIBUTION, GET_MY_CONTRIBUTIONS);
     }
 
     private void createGetContributionsBySearchPage() {
         pageTitleGiverResults.setVisibility(View.VISIBLE);
         searchText.getTextLayout().setHint("חפש בתרומות קיימות");
-        getContributionsFromDatabase();
+        getContributionsFromDatabase(Contribution.CONTRIBUTION_TYPE_SHARE_CONTRIBUTION, GET_ALL_CONTRIBUTIONS);
     }
 
     private void createGetTransportsPage(){
-        pageTitleGiverResults.setVisibility(View.VISIBLE);
+        pageTitleDeliveryResults.setVisibility(View.VISIBLE);
         searchText.getTextLayout().setHint("חפש נזקקים לשליח");
-        getTransportationRequestsFromDatabase();
+        getContributionsFromDatabase( Contribution.CONTRIBUTION_TYPE_TRANSPORT, GET_ALL_CONTRIBUTIONS);
     }
 
-
-    private void getHelpRequestsFromDatabase() {
-        String[] contributionsList = {
-                Contribution.CONTRIBUTION_TYPE_HELP
-        };
-        getContributionsFromDatabase(contributionsList, GET_ALL_CONTRIBUTIONS);
-    }
-
-    private void getTransportationRequestsFromDatabase() {
-        String[] contributionsList = {
-                Contribution.CONTRIBUTION_TYPE_TRANSPORT,
-        };
-        getContributionsFromDatabase(contributionsList, GET_ALL_CONTRIBUTIONS);
-    }
-
-    private void getContributionsFromDatabase() {
-        String[] contributionsList = {
-                Contribution.CONTRIBUTION_TYPE_SHARE_CONTRIBUTION,
-        };
-        getContributionsFromDatabase(contributionsList, GET_ALL_CONTRIBUTIONS);
-    }
-
-    private void getMyHelpRequestsFromDatabase() {
-        String[] contributionsList = {
-                Contribution.CONTRIBUTION_TYPE_HELP,
-        };
-        getContributionsFromDatabase(contributionsList, GET_MY_CONTRIBUTIONS);
-    }
-
-    private void getMyContributionsFromDatabase() {
-        String[] contributionsList = {
-                Contribution.CONTRIBUTION_TYPE_HELP,
-                Contribution.CONTRIBUTION_TYPE_SHARE_CONTRIBUTION,
-                Contribution.CONTRIBUTION_TYPE_TRANSPORT
-        };
-        getContributionsFromDatabase(contributionsList, GET_MY_CONTRIBUTIONS);
-    }
 
     private void makeButtons() {
 
@@ -304,8 +267,13 @@ public class ResultListActivity extends Activity {
                     .addOnSuccessListener(new OnSuccessListener<byte[]>() {
                         @Override
                         public void onSuccess(byte[] bytes) {
-                            Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-                            imageView.setImageBitmap(bitmap);
+                            try {
+                                Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                                imageView.setImageBitmap(bitmap);
+                            }
+                            catch(Exception e){
+                                e.printStackTrace();
+                            }
                         }
                     });
         }
@@ -395,48 +363,43 @@ public class ResultListActivity extends Activity {
         return stringBuilder.toString();
     }
 
-    private void getContributionsFromDatabase(final String[] contributionsList, final int contributionsToGetOption) {
+    private void getContributionsFromDatabase(final String contributionType, final int contributionsToGetOption) {
 
         database = FirebaseDatabase.getInstance();
-        String contributionString;
 
-        for (int i = 0; i < contributionsList.length; i++) {
+        databaseReference = database.getReference();
 
-            contributionString = contributionsList[i];
-            databaseReference = database.getReference();
+        switch (contributionsToGetOption) {
+            case GET_ALL_CONTRIBUTIONS:
+                databaseReference = databaseReference.child("Contributions").child(contributionType);
+                break;
+            case GET_MY_CONTRIBUTIONS:
+                databaseReference = databaseReference.child("Contributions").child(contributionType).child(CurrentUser.getUserName());
+        }
 
-            switch (contributionsToGetOption) {
-                case GET_ALL_CONTRIBUTIONS:
-                    databaseReference = databaseReference.child("Contributions").child(contributionString);
-                    break;
-                case GET_MY_CONTRIBUTIONS:
-                    databaseReference = databaseReference.child("Contributions").child(contributionString).child(CurrentUser.getUserName());
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Log.i("title:", "before for");
+
+                if (contributionsToGetOption == GET_ALL_CONTRIBUTIONS) {
+                    extractAllContributions(snapshot);
+                } else if (contributionsToGetOption == GET_MY_CONTRIBUTIONS) {
+                    extractMyContributions(snapshot);
+                }
+                Log.i("title:", "the size is: " + resultsFromDatabaseList.size());
+                makeButtons();
+
             }
 
-            final int finalI = i;
-            databaseReference.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    Log.i("title:", "before for");
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
-                    if (contributionsToGetOption == GET_ALL_CONTRIBUTIONS) {
-                        extractAllContributions(snapshot);
-                    } else if (contributionsToGetOption == GET_MY_CONTRIBUTIONS) {
-                        extractMyContributions(snapshot);
-                    }
-                    Log.i("title:", "the size is: " + resultsFromDatabaseList.size());
-                    if(finalI == contributionsList.length-1) {
-                        makeButtons();
-                    }
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
-            });
-        }
+            }
+        });
     }
+
 
 
     private void extractAllContributions(DataSnapshot snapshot) {
@@ -446,7 +409,8 @@ public class ResultListActivity extends Activity {
         for (DataSnapshot userNameChild : children) {
             for (DataSnapshot contributionChild : userNameChild.getChildren()) {
                 contribution = contributionChild.getValue(Contribution.class);
-                if (contribution != null && !contribution.isAssigned()) {
+                if (contribution != null && (!contribution.isAssigned() || contribution.getContributionType().contains(Contribution.CONTRIBUTION_TYPE_TRANSPORT)) &&
+                        !contribution.getUserName().contains(CurrentUser.getUserName())) {
                     Log.i("ALL:", "contribution id is: " + contribution.getContributionID());
                     resultsFromDatabaseList.add(contribution);
                 } else

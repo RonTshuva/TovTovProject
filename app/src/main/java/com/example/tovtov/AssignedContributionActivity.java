@@ -57,8 +57,10 @@ public class AssignedContributionActivity extends Activity {
 
         if(pageArgument.contains(ResultListActivity.PAGE_ARGUMENT_MY_HELP_REQUESTS) || pageArgument.contains(ResultListActivity.PAGE_ARGUMENT_GET_HELP_REQUESTS_BY_SEARCH) )
             showHelpRequestPage();
-        else if(pageArgument.contains(ResultListActivity.PAGE_ARGUMENT_GET_TRANSPORTS_BY_SEARCH) || pageArgument.contains(ResultListActivity.PAGE_ARGUMENT_MY_CONTRIBUTIONS))
+        else
             showTransportRequestPage();
+
+
 
     }
 
@@ -73,21 +75,33 @@ public class AssignedContributionActivity extends Activity {
                     .addOnSuccessListener(new OnSuccessListener<byte[]>() {
                         @Override
                         public void onSuccess(byte[] bytes) {
-                            Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-                            imageView.setImageBitmap(bitmap);
+                            try {
+                                Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                                imageView.setImageBitmap(bitmap);
+                            }
+                            catch(Exception e){
+                                e.printStackTrace();
+                            }
                         }
                     });
         }
     }
 
 
+
     @SuppressLint("SetTextI18n")
     private void showHelpRequestPage(){
-        firstPageTitle.setText("פרטי המבקש:");
+        if(contributionHelper.getAssignedUserName().contains(CurrentUser.getUserName())) {
+            firstPageTitle.setText("פרטי התורם:");
+            secondPageTitle.setText("תיאור התרומה:");
+        }
+        else{
+            firstPageTitle.setText("פרטי המבקש:");
+            secondPageTitle.setText("תיאור הבקשה:");
+        }
         firstFullName.setText(contributionHelper.getFirstName() + " " + contributionHelper.getLastName());
         firstPhoneNumber.setText(contributionHelper.getPhoneNumber());
         firstAddress.setText(contributionHelper.getFullAddress());
-        secondPageTitle.setText("תיאור הבקשה:");
         secondFullName.setText(contributionHelper.getDescription());
     }
 

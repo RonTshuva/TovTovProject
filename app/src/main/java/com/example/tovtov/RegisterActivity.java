@@ -157,7 +157,7 @@ public class RegisterActivity extends AppCompatActivity {
                 break;
             case "fullAddress":
                 if (!isValidInput(input,VALID_ADDRESS)) {
-                    textField.setErrorLayoutText("הכתובת חייבת להכיל רק אותיות ומספרים");
+                    textField.setErrorLayoutText("הכתובת חייבת להכיל אותיות ומספרים");
                     isValid = false;
                 }
                 else
@@ -186,11 +186,17 @@ public class RegisterActivity extends AppCompatActivity {
         return isValid;
     }
 
+    /*
+    || (stringBuilder.charAt(i) >= 97 && stringBuilder.charAt(i) <= 122) // lowercases english characters
+                    || (stringBuilder.charAt(i) >= 65 &&  stringBuilder.charAt(i) <= 90) // uppercases english characters
+                    || (stringBuilder.charAt(i) >= 1488 &&  stringBuilder.charAt(i) <= 1515)) // hebrew characters
+
+     */
     private boolean isValidInput(String input, int option){
         if(pageArgument.contains(PAGE_ARGUMENT_CHANGE_DETAILS) && input.isEmpty())
             return true;
 
-        boolean valid = false, numbersFlag = false, phoneNumberFlag = false , lowerLettersFlag = false, upperLettersFlag = false, invalidCharacter = false, fullAddressFlag = false;
+        boolean valid = false, numbersFlag = false, phoneNumberFlag = false , lowerLettersFlag = false, upperLettersFlag = false, herbrewFlag = false, invalidCharacter = false, fullAddressFlag = false;
 
         // this "for" is changing the flags, depends on the characters we have in the variable "input"
         for(int i = 0; i < input.length() && !invalidCharacter ; i++){
@@ -198,6 +204,7 @@ public class RegisterActivity extends AppCompatActivity {
             else if ((input.charAt(i) == '+') || (input.charAt(i) == '-')) phoneNumberFlag = true;
             else if ((input.charAt(i) + "").matches("[a-z]")) lowerLettersFlag = true;
             else if ((input.charAt(i) + "").matches("[A-Z]")) upperLettersFlag = true;
+            else if ((input.charAt(i) >= 1488 &&  input.charAt(i) <= 1515)) herbrewFlag = true;
             else if (input.charAt(i) == ' ') fullAddressFlag = true;
             else invalidCharacter = true;
         }
@@ -218,11 +225,11 @@ public class RegisterActivity extends AppCompatActivity {
                     valid = true;
                 break;
             case VALID_NAME:
-                if ((lowerLettersFlag || upperLettersFlag) && !numbersFlag )
+                if ((lowerLettersFlag || upperLettersFlag || herbrewFlag) && !numbersFlag )
                     valid = true;
                 break;
             case VALID_ADDRESS:
-                if (lowerLettersFlag && (upperLettersFlag || numbersFlag || fullAddressFlag))
+                if ((lowerLettersFlag || upperLettersFlag || herbrewFlag) && numbersFlag)
                     valid = true;
                 break;
         }
@@ -246,20 +253,23 @@ public class RegisterActivity extends AppCompatActivity {
                     String dateCreated = new Date().toString();
                     String passwordString = password.getTextLayout().getText().toString();
                     String fullAddressString = fullAddress.getTextLayout().getText().toString();
-
-                    UserHelperClass userClass = new UserHelperClass( // we create the user object so we can save it to the dataBase
-                            dateCreated,
-                            userNameString,
-                            hashPassword(dateCreated, passwordString), // hash the password
-                            phoneNumber.getTextLayout().getText().toString(),
-                            firstName.getTextLayout().getText().toString(),
-                            lastName.getTextLayout().getText().toString(),
-                            fullAddressString,
-                            getLocationByAddress(fullAddressString)
-                    );
-                    userReference.child(userNameString).setValue(userClass); // in the "Users" folder create new folder and set the name of that folder as "userNameString"
-                    // then put the information  ( "userClass" object ) that belongs to the user (like firstName, email etc...) to that folder
-                    createdUserIsSuccessful();
+                    String addressCoordinates = getLocationByAddress(fullAddressString);
+                    if(!addressCoordinates.contains("0,0")) {
+                        UserHelperClass userClass = new UserHelperClass( // we create the user object so we can save it to the dataBase
+                                dateCreated,
+                                userNameString,
+                                hashPassword(dateCreated, passwordString), // hash the password
+                                phoneNumber.getTextLayout().getText().toString(),
+                                firstName.getTextLayout().getText().toString(),
+                                lastName.getTextLayout().getText().toString(),
+                                fullAddressString,
+                                addressCoordinates
+                        );
+                        userReference.child(userNameString).setValue(userClass); // in the "Users" folder create new folder and set the name of that folder as "userNameString"
+                        // then put the information  ( "userClass" object ) that belongs to the user (like firstName, email etc...) to that folder
+                        createdUserIsSuccessful();
+                    }else
+                        fullAddress.setErrorLayoutText("הכתובת שהזנת אינה קיימת");
                 }
                 else if (pageArgument.contains(PAGE_ARGUMENT_CHANGE_DETAILS)){
                     String userNameString = CurrentUser.getUserName(); // we take the strings from the textBoxes
@@ -299,6 +309,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
     }
+
 
     public String getLocationByAddress(String addressString){
         if(addressString == null) return null;

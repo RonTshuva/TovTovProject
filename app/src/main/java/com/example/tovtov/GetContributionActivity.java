@@ -100,6 +100,7 @@ public class GetContributionActivity extends Activity {
     public void askForTransportation(View view){
         transportationButton.setEnabled(false);
         transportationButton.setVisibility(View.INVISIBLE);
+        contributionHelper.setContributionType(Contribution.CONTRIBUTION_TYPE_TRANSPORT);
         database.getReference("Contributions").
                 child("Transport").
                 child(CurrentUser.getUserName()).
@@ -118,8 +119,13 @@ public class GetContributionActivity extends Activity {
                     .addOnSuccessListener(new OnSuccessListener<byte[]>() {
                         @Override
                         public void onSuccess(byte[] bytes) {
-                            Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-                            imageView.setImageBitmap(bitmap);
+                            try {
+                                Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                                imageView.setImageBitmap(bitmap);
+                            }
+                            catch(Exception e){
+                                e.printStackTrace();
+                            }
                         }
                     });
         }
