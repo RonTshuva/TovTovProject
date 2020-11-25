@@ -29,10 +29,7 @@ Whether you like to give away or accept help even from the comfort of your home,
 - Apply your request for help from the comfort of your mobile phone.
 
 - We also feature the option to be used as a delivery man between one giver to another seeker. and by doing this doing twice for your community.
-
-## VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
- ## ** Important Note: At this version:  ////////// Log-In page & Register page, are not supporting hebrew input! a fix will be uploaded in the next patch///////// **
- ## ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                
+            
 
  ## Lets get started:
 
