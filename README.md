@@ -96,4 +96,4 @@ second is to Watch Available Posts people who are willing to give away certain i
   # Make Post:
 ![alt text](https://i.ibb.co/qJCGSyc/Post.png)
   # Result page:
- ![alt text](https://i.ibb.co/4RsKRZb/result.png)
+ ![alt text](https://ibb.co/Fg1fvrL)
