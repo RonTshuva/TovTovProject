@@ -329,10 +329,10 @@
         android:id="@+id/firstButtonNameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="24sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/firstItemButton"
         app:layout_constraintEnd_toEndOf="@+id/firstItemButton"
-        app:layout_constraintHorizontal_bias="0.761"
+        app:layout_constraintHorizontal_bias="0.841"
         app:layout_constraintStart_toStartOf="@+id/firstButtonImageView"
         app:layout_constraintTop_toTopOf="@+id/firstItemButton"
         app:layout_constraintVertical_bias="0.071" />
@@ -341,35 +341,35 @@
         android:id="@+id/thirdButtonNameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="24sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/thirdItemButton"
         app:layout_constraintEnd_toEndOf="@+id/thirdItemButton"
-        app:layout_constraintHorizontal_bias="0.761"
+        app:layout_constraintHorizontal_bias="0.841"
         app:layout_constraintStart_toStartOf="@+id/thirdButtonImageView"
         app:layout_constraintTop_toTopOf="@+id/thirdItemButton"
-        app:layout_constraintVertical_bias="0.071" />
+        app:layout_constraintVertical_bias="0.202" />
 
     <TextView
         android:id="@+id/forthButtonNameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="38dp"
-        android:textSize="24sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/forthItemButton"
         app:layout_constraintEnd_toEndOf="@+id/forthItemButton"
-        app:layout_constraintHorizontal_bias="0.761"
+        app:layout_constraintHorizontal_bias="0.841"
         app:layout_constraintStart_toStartOf="@+id/forthButtonImageView"
         app:layout_constraintTop_toTopOf="@+id/forthItemButton"
-        app:layout_constraintVertical_bias="0.264" />
+        app:layout_constraintVertical_bias="0.282" />
 
     <TextView
         android:id="@+id/secondButtonNameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="24sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/thirdItemButton"
         app:layout_constraintEnd_toEndOf="@+id/secondItemButton"
-        app:layout_constraintHorizontal_bias="0.761"
+        app:layout_constraintHorizontal_bias="0.841"
         app:layout_constraintStart_toStartOf="@+id/secondButtonImageView"
         app:layout_constraintTop_toBottomOf="@+id/firstItemButton"
         app:layout_constraintVertical_bias="0.071" />
@@ -378,9 +378,10 @@
         android:id="@+id/firstButtonDescriptionText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/firstItemButton"
         app:layout_constraintEnd_toEndOf="@+id/firstItemButton"
-        app:layout_constraintHorizontal_bias="0.761"
+        app:layout_constraintHorizontal_bias="0.841"
         app:layout_constraintStart_toStartOf="@+id/firstButtonImageView"
         app:layout_constraintTop_toTopOf="@+id/firstItemButton"
         app:layout_constraintVertical_bias="0.494" />
@@ -389,20 +390,22 @@
         android:id="@+id/secondButtonDescriptionText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/thirdItemButton"
         app:layout_constraintEnd_toEndOf="@+id/secondItemButton"
-        app:layout_constraintHorizontal_bias="0.761"
+        app:layout_constraintHorizontal_bias="0.841"
         app:layout_constraintStart_toStartOf="@+id/secondButtonImageView"
         app:layout_constraintTop_toBottomOf="@+id/firstItemButton"
-        app:layout_constraintVertical_bias="0.494" />
+        app:layout_constraintVertical_bias="0.525" />
 
     <TextView
         android:id="@+id/thirdButtonDescriptionText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/thirdItemButton"
         app:layout_constraintEnd_toEndOf="@+id/thirdItemButton"
-        app:layout_constraintHorizontal_bias="0.761"
+        app:layout_constraintHorizontal_bias="0.841"
         app:layout_constraintStart_toStartOf="@+id/thirdButtonImageView"
         app:layout_constraintTop_toTopOf="@+id/thirdItemButton"
         app:layout_constraintVertical_bias="0.505" />
@@ -411,11 +414,12 @@
         android:id="@+id/forthButtonDescriptionText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/forthItemButton"
         app:layout_constraintEnd_toEndOf="@+id/forthItemButton"
-        app:layout_constraintHorizontal_bias="0.761"
+        app:layout_constraintHorizontal_bias="0.841"
         app:layout_constraintStart_toStartOf="@+id/forthButtonImageView"
         app:layout_constraintTop_toBottomOf="@+id/thirdItemButton"
-        app:layout_constraintVertical_bias="0.574" />
+        app:layout_constraintVertical_bias="0.568" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
