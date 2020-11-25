@@ -99,3 +99,8 @@ second is to Watch Available Posts people who are willing to give away certain i
 ![alt text](https://i.ibb.co/qJCGSyc/Post.png)
   # Result page:
  ![alt text](https://i.ibb.co/4PLDyqn/results-page2.png)
+
+ ### #Versions & Updates #
+v0.10
+ Hebrew support was added
+ icon was added
